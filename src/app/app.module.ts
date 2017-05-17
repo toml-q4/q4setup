@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule, routableComponents } from './app-routing.module';
 
 import { ClientComponent } from './client/client.component';
-
+import { AdminModule } from './admin/admin.module';
 
 
 @NgModule({
@@ -20,6 +20,7 @@ import { ClientComponent } from './client/client.component';
     FormsModule,
     HttpModule,
     NgbModule.forRoot(),
+    AdminModule,
     AppRoutingModule
   ],
   providers: [],

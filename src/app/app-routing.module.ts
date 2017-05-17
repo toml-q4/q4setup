@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { ClientListComponent } from './client-list/client-list.component';
 import { ClientInfoComponent } from './client-info/client-info.component';
-
+import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'clients' },
+    { path: 'login', component: LoginComponent },
     { path: 'clients', component: ClientListComponent },
     { path: 'clients/:id', component: ClientInfoComponent },
 ];
@@ -21,5 +22,6 @@ export class AppRoutingModule { }
 
 export const routableComponents = [
     ClientListComponent,
-    ClientInfoComponent
+    ClientInfoComponent,
+    LoginComponent
 ];
