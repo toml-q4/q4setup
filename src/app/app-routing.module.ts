@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
-import { ClientListComponent } from './client-list/client-list.component';
-import { ClientInfoComponent } from './client-info/client-info.component';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
+import { AuthService } from './auth.service';
+import { ClientsComponent } from './clients/clients.component';
 
 const appRoutes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'clients' },
     { path: 'login', component: LoginComponent },
-    { path: 'clients', component: ClientListComponent },
-    { path: 'clients/:id', component: ClientInfoComponent },
+    { path: 'clients', component: ClientsComponent, canActivate: [AuthGuard] }
 ];
 
 
@@ -16,12 +16,12 @@ const appRoutes: Routes = [
     imports: [
         RouterModule.forRoot(appRoutes)
     ],
-    exports: [RouterModule]
+    exports: [RouterModule],
+    providers: [AuthGuard, AuthService]
 })
 export class AppRoutingModule { }
 
 export const routableComponents = [
-    ClientListComponent,
-    ClientInfoComponent,
-    LoginComponent
+    LoginComponent,
+    ClientsComponent
 ];

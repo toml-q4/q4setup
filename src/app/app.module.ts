@@ -2,25 +2,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { AppRoutingModule, routableComponents } from './app-routing.module';
-
-import { ClientComponent } from './client/client.component';
-import { AdminModule } from './admin/admin.module';
-
+import { NavMenuComponent } from './nav-menu/nav-menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavMenuComponent,
     routableComponents
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    NgbModule.forRoot(),
-    AdminModule,
     AppRoutingModule
   ],
   providers: [],
