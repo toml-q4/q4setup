@@ -10,7 +10,7 @@ export class AuthService {
   redirectUrl: string;
 
   login(): Observable<boolean> {
-    return Observable.of(true).delay(1000).do(val => this.isAuthenticated = true);
+    return Observable.of(true).do(val => this.isAuthenticated = true);
   }
 
   logout(): void {

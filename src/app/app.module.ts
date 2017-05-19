@@ -5,6 +5,10 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule, routableComponents } from './app-routing.module';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import './rxjs-extensions';
+
+
+import { ClientService } from './clients/client.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ClientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
