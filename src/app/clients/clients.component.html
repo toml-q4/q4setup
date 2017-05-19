@@ -1,5 +1,48 @@
-<ul>
-  <li *ngFor="let client of clients">
-    {{ client.siteName }}
-  </li>
-</ul>
+<div class="row" *ngFor="let client of clients">
+  <div class="col-sm-6">
+    <h3>{{ client.siteName }}</h3>
+    
+    <span class="badge" [ngClass]="client.isActive ? 'badge-success':'badge-default'">{{client.isActive ? '':'NOT '}}Active</span>          
+    <span class="badge badge-default" title="Configuration Type">{{client.configurationType}}</span>
+    <span class="badge badge-default" title="Version">{{client.version}}</span>
+    <br>
+    <span title="Client Uid">{{ client.clientUid }}</span> - <span title="Database Name">{{ client.dbName }}</span>
+
+    <table class="table table-sm client-details">
+        <tbody>
+          <tr>
+            <td>Hostnames</td>
+            <td>{{client.hostnames}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+  </div>
+  <div class="col-sm-6">
+    <table class="table table-sm client-details">
+        <tbody>
+          <tr>
+            <td>Site Status</td>
+            <td>{{client.siteStatus}}</td>
+          </tr>
+          <tr>
+            <td>User Name</td>
+            <td>{{client.userName}}</td>
+          </tr>
+          <tr>
+            <td>Pingdom</td>
+            <td>{{client.pingdom}}</td>
+          </tr>
+          <tr>
+            <td>Bucket Name</td>
+            <td>{{client.bucketName}}</td>
+          </tr>
+          <tr>
+            <td>Group Name</td>
+            <td>{{client.groupName}}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  <div class="separator"></div>
+</div>
