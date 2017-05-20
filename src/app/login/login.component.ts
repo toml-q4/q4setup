@@ -14,9 +14,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   login(event, username, password) {
+    event.preventDefault();
     this.message = "Logging in...";
 
-    this.authService.login()
+    this.authService.login(username, password)
     .subscribe(() => {
       if (this.authService.isAuthenticated) {
         this.message = "Logged in";
