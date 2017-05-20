@@ -1,10 +1,17 @@
-<div class="row" *ngFor="let client of clients">
+
+<div class="row" *ngFor="let client of clients | async">
   <div class="col-sm-6">
     <h3>{{ client.siteName }}</h3>
     
-    <span class="badge" [ngClass]="client.isActive ? 'badge-success':'badge-default'">{{client.isActive ? '':'NOT '}}Active</span>          
+    <span class="badge" [ngClass]="client.isActive ? 'badge-default':'badge-danger'">{{client.isActive ? 'Active':'Inactive'}}</span>          
     <span class="badge badge-default" title="Configuration Type">{{client.configurationType}}</span>
     <span class="badge badge-default" title="Version">{{client.version}}</span>
+    <span class="badge" 
+          [ngClass]="client.isCloudDataAvailable ? 'badge-info':'badge-danger'"
+          title="Cloud Data">{{client.isCloudDataAvailable ? 'Cloud Data':'No Cloud Data'}}</span>
+    <span class="badge" 
+          [ngClass]="client.isCloudDataSyncEnabled ? 'badge-info':'badge-danger'"
+          title="Cloud Data Sync">{{client.isCloudDataSyncEnabled ? 'Cloud Data Sync':'No Cloud Data Sync'}}</span>
     <br>
     <span title="Client Uid">{{ client.clientUid }}</span> - <span title="Database Name">{{ client.dbName }}</span>
 

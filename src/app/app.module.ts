@@ -7,8 +7,7 @@ import { AppRoutingModule, routableComponents } from './app-routing.module';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import './rxjs-extensions';
 
-
-import { ClientService } from './clients/client.service';
+import { ClientsModule } from './clients/clients.module';
 
 @NgModule({
   declarations: [
@@ -20,9 +19,10 @@ import { ClientService } from './clients/client.service';
     BrowserModule,
     FormsModule,
     HttpModule,
+    ClientsModule,
     AppRoutingModule
   ],
-  providers: [ClientService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

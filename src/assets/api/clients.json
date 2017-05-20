@@ -82,7 +82,7 @@
 		"bucketName": "q4dev1.clientfiles",
 		"groupName": "q4webrubix",
 		"isCloudDataAvailable": false,
-		"isCloudDataSyncEnabled": false
+		"isCloudDataSyncEnabled": true
 	},
 	{
 		"siteName": "Q4WebFacebook",
@@ -133,7 +133,7 @@
 		"bucketName": "q4dev1.clientfiles",
 		"groupName": "q4webensco",
 		"isCloudDataAvailable": false,
-		"isCloudDataSyncEnabled": false
+		"isCloudDataSyncEnabled": true
 	},
 	{
 		"siteName": "Q4WebKinross",
@@ -149,7 +149,7 @@
 		"pingdom": 0,
 		"bucketName": "q4dev1.clientfiles",
 		"groupName": "q4webkinross",
-		"isCloudDataAvailable": false,
+		"isCloudDataAvailable": true,
 		"isCloudDataSyncEnabled": false
 	},
 	{
