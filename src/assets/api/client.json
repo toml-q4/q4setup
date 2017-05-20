@@ -1,0 +1,177 @@
+{
+	"siteName": "Q4WebBlankProduction",
+	"databaseName": "Q4WebBlankProduction",
+	"clientUid": "409293806",
+	"siteId": 20403,
+	"pingdomCheckId": 0,
+	"version": "1.1.1.0",
+	"siteStatus": "Implementations",
+	"languageViewModel": {
+		"installedLanguages": [
+			"English"
+		],
+		"availableLanguages": [
+			{
+				"culture": "ar",
+				"languageName": "Arabic"
+			},
+			{
+				"culture": "bg",
+				"languageName": "Bulgarian"
+			},
+			{
+				"culture": "zh",
+				"languageName": "Chinese"
+			},
+			{
+				"culture": "fr",
+				"languageName": "French"
+			},
+			{
+				"culture": "de",
+				"languageName": "German"
+			},
+			{
+				"culture": "pt",
+				"languageName": "Portuguese"
+			},
+			{
+				"culture": "es",
+				"languageName": "Spanish"
+			},
+			{
+				"culture": "tr",
+				"languageName": "Turkish"
+			}
+		]
+	},
+	"configurationTypeViewModel": {
+		"configurationType": "std",
+		"availableConfigurationTypes": [
+			"std",
+			"noiframe"
+		],
+		"notSupported": false
+	},
+	"cloudFilesDomainViewModel": {
+		"cloudFilesDomain": "s2.q4cdn.com",
+		"availableCloudFilesDomains": []
+	},
+	"s3BucketViewModel": {
+		"s3Bucket": "q4live.s2.clientfiles",
+		"availableBuckets": [
+			"acquire-xml",
+			"aws-csharp-dev-serverlessdeploymentbucket-qhrj162yolju",
+			"beanstalkapp.sourcecontrol.backup",
+			"blankbucket",
+			"cloudfront.invalidations",
+			"config-bucket-362592268871",
+			"daniel.cdn.test",
+			"elasticbeanstalk-ca-central-1-362592268871",
+			"elasticbeanstalk-us-east-1-362592268871",
+			"elasticbeanstalk-us-west-2-362592268871",
+			"euroirappserver",
+			"euroirwebwebserver",
+			"fedex-keycdn",
+			"lambda-awslambda1-636293408931635667",
+			"lambda-awslambda1-636293410486714737",
+			"lambda-awslambda1-636293420226912058",
+			"lambda-awslambda1-636293421291293485",
+			"lambda-awslambda1-636293423036945560",
+			"lambda-awslambda1-636293423904339747",
+			"lambda-awslambda1-636293425632688814",
+			"lambda-awslambda1-636293428386372513",
+			"lambda-awslambda1-636293430093590561",
+			"lambda-awslambda1-636293431945573161",
+			"lambda-awslambda1-636293434184727445",
+			"lambda-awslambda1-636293436650949125",
+			"lambda-awslambda1-636294006103152817",
+			"lambda-awslambda1-636294962176543296",
+			"lambda-awslambda1-636294966236912310",
+			"lambda-awslambda1-636294967146692978",
+			"lambda-awslambda1-636294968620015025",
+			"lambda-awslambda1-636294968987447272",
+			"lambda-awslambda1-636294973826210402",
+			"lambda-awslambda1-636294975989965027",
+			"lambda-awslambda1-636297790720516774",
+			"lambda-awslambda1-636297794557587492",
+			"lambda-awslambda1-636297797256619719",
+			"lambda-awslambda1-636297800223049232",
+			"lambda-awslambda1-636297809765125291",
+			"lambda-awslambda1-636300946308031324",
+			"newsservice-dev-news",
+			"newsservice-dev-serverlessdeploymentbucket-1gnzhflmtamac",
+			"newsservice-dev-serverlessdeploymentbucket-mgvimxh75bzn",
+			"newsservice-test-serverlessdeploymentbucket-1muobpzujyzmb",
+			"newsservice-test-serverlessdeploymentbucket-wzu7yzee7tgt",
+			"newsserviceeuro-dev-serverlessdeploymentbucket-1pvvbjkx5661m",
+			"ownership-api-marcus-dev-serverlessdeploymentbuck-1lptrtq9388lf",
+			"ownership-api-marcus-serverlessdeploymentbucket-2t3ctz8w9h4u",
+			"ownership-api-single2-serverlessdeploymentbucket-139l33niyqlg3",
+			"ownership-api-testing-serverlessdeploymentbucket-h5q1itw3k60d",
+			"press-release-service-lb",
+			"q4-butterfly",
+			"q4-devops-cf-templates",
+			"q4-news-service",
+			"q4-news-service-dev",
+			"q4-news-service-dev-backup",
+			"q4-news-service-test",
+			"q4-server-automation-staging",
+			"q4.errorpages",
+			"q4.octopus.backup",
+			"q4.teamcity.backup",
+			"q4.test.integration",
+			"q4cdn.local",
+			"q4dev.s1.clientfiles",
+			"q4dev.s2.clientfiles",
+			"q4dev.s21.clientfiles",
+			"q4dev.s27.clientfiles",
+			"q4dev1.clientfiles",
+			"q4dev1.clientfiles.barrick2013",
+			"q4dev1.clientfiles.kellog",
+			"q4dev1.clientfiles.rubbermaid",
+			"q4dev1.clientfiles.silverwheaton",
+			"q4dev1.secfiles",
+			"q4euro-pushpub",
+			"q4euro-server-automation-staging",
+			"q4euro.db",
+			"q4local.secfiles",
+			"q4preview1.clientfiles",
+			"q4quant",
+			"q4quant-ai-targeting-models",
+			"q4quant-transfer",
+			"q4read",
+			"q4read-website",
+			"q4staging-trail",
+			"q4staging.clientfiles",
+			"q4staging.secfiles",
+			"q4testfiles",
+			"q4webstaging",
+			"s1.clientfiles",
+			"serverless-max-test",
+			"twitter-card-cdn-tests"
+		],
+		"transferStatusDescription": "No current transfers",
+		"transferStatus": 2
+	},
+	"siteGroupViewModel": {
+		"siteGroup": "q4webblankproduction",
+		"sitesInGroup": []
+	},
+	"suspended": false,
+	"hosts": [
+		{
+			"hostname": "blankproduction.q4web.newtest",
+			"deletable": false
+		}
+	],
+	"cloudDataStatusViewModel": {
+		"isCloudDataAvailable": false,
+		"isCloudDataSyncEnabled": false,
+		"cannotToggle": true,
+		"cloudDataSyncStatus": "disabled",
+		"lastCloudDatabaseOperationStatus": null,
+		"lastCloudDatabaseOperationStatusEndDateLocalFormat": null,
+		"cloudDatabaseHasError": false
+	}
+}

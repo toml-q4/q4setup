@@ -1,5 +1,5 @@
 
-<div class="row" *ngFor="let client of clients | async">
+<div class="row" *ngFor="let client of clients | async" (click)="onSelect(client.clientUid)">
   <div class="col-sm-6">
     <h3>{{ client.siteName }}</h3>
     
