@@ -6,7 +6,7 @@ import 'rxjs/add/operator/delay';
 
 @Injectable()
 export class AuthService {
-  isAuthenticated: Boolean = true; // setting true for testing purposes
+  isAuthenticated: Boolean = false;
   redirectUrl: string;
 
   login(): Observable<boolean> {

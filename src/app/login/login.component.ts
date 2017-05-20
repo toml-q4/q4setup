@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
-  login() {
+  login(event, username, password) {
     this.message = "Logging in...";
 
     this.authService.login()
