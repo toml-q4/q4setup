@@ -16,7 +16,7 @@ const routes: Routes = [
     children: [
       { path: '', component: ClientListComponent },
       { path: ':id', component: ClientComponent }
-    ]  
+    ]
   }
 
 ];
