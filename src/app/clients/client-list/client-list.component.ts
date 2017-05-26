@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ClientService } from '../client.service';
+import { ClientListItemComponent } from '../client-list-item/client-list-item.component';
 import { Client } from '../client';
 import { Observable } from 'rxjs/Observable';
 

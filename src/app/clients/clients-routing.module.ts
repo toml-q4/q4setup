@@ -6,6 +6,7 @@ import { AuthGuard } from '../auth.guard';
 
 import { ClientsComponent } from './clients.component';
 import { ClientListComponent } from './client-list/client-list.component';
+import { ClientListItemComponent } from './client-list-item/client-list-item.component';
 import { ClientComponent } from './client/client.component';
 
 const routes: Routes = [
@@ -32,5 +33,6 @@ export class ClientsRoutingModule { }
 export const routableClientComponents = [
   ClientsComponent,
   ClientListComponent,
+  ClientListItemComponent,
   ClientComponent
 ];
