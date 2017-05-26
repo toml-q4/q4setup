@@ -9,7 +9,8 @@ import { AuthService } from './auth.service';
 const appRoutes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/clients' },
     { path: 'login', component: LoginComponent },
-    { path: 'stockquotes', loadChildren: 'app/stockquotes/stockquotes.module#StockQuotesModule' }
+    { path: 'stockquotes', loadChildren: 'app/stockquotes/stockquotes.module#StockQuotesModule' },
+    { path: '**', pathMatch: 'full', component: PageNotFoundComponent }
 ];
 
 

@@ -8,7 +8,7 @@ import { StockQuotesComponent } from './stockquotes.component';
 import { StockQuoteListComponent } from './stockquote-list/stockquote-list.component';
 
 const routes: Routes = [
-  { path: 'stockquotes',
+  { path: '',
     component: StockQuotesComponent,
     canActivateChild: [AuthGuard],
     children: [
