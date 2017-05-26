@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { LoginComponent } from './login/login.component';
+import { LoginFormComponent } from './login/login-form/login-form.component';
 import { RouterModule, Routes } from '@angular/router';
 
 import { PageNotFoundComponent } from './page-not-found.component';
@@ -25,5 +26,6 @@ export class AppRoutingModule { }
 
 export const routableComponents = [
     LoginComponent,
+    LoginFormComponent,
     PageNotFoundComponent
 ];

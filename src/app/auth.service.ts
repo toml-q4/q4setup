@@ -18,7 +18,7 @@ export class LoginResponse {
 
 @Injectable()
 export class AuthService {
-  isAuthenticated: Boolean = true;
+  isAuthenticated: Boolean = false;
   redirectUrl: string;
 
   private loginPostUrl: string = 'https://q4setup.q4.local/token';

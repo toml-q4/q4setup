@@ -1,19 +1,4 @@
-<p>{{message}}</p>
-
 <div class="login jumbotron center-block">
-   <h1>Login</h1>
-   <form role="form" (submit)="login($event, username.value, password.value)" #loginForm="ngForm">
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input type="text" #username class="form-control" id="username" placeholder="Username" required>
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" #password class="form-control" id="password" placeholder="Password" required>
-    </div>
-    <button type="submit"
-            class="btn btn-default"
-            [disabled]="!loginForm.form.valid"
-            >Submit</button>
-  </form>
- </div>
+  <h1>Login</h1>
+  <login-form></login-form>
+</div>
