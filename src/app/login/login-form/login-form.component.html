@@ -1,18 +1,16 @@
 <form #loginForm="ngForm" novalidate>
-  <div class="form-group">
-    <label for="username">Username</label>
-    <input id="username" class="form-control"
-           name="username"
-           type="text" ngModel
-           required>
-  </div>
+    <div class="form-group" [class.has-danger]="username.invalid && username.touched" [class.has-success]="username.touched && username.valid">
+        <label class="form-control-label" for="username">Username</label>
+        <input id="username" class="form-control" [class.form-control-danger]="username.invalid && username.touched" [class.form-control-success]="username.valid && username.touched" name="username" type="text" [(ngModel)]="model.username" #username="ngModel"
+            required>
+        <div class="form-control-feedback" *ngIf="username.touched && username.invalid">Username is required.</div>
+    </div>
 
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input id="password" class="form-control"
-           name="password"
-           type="password" ngModel
-           required>
-  </div>
-  <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">Log In</button>
+    <div class="form-group" [class.has-danger]="password.invalid && password.touched" [class.has-success]="password.touched && password.valid">
+        <label class="form-control-label" for="password">Password</label>
+        <input id="password" class="form-control" [class.form-control-danger]="password.invalid && password.touched" [class.form-control-success]="password.valid && password.touched" name="password" type="password" [(ngModel)]="model.password" #password="ngModel"
+            required>
+        <div class="form-control-feedback" *ngIf="password.touched && password.invalid">Password is required.</div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">Log In</button>
 </form>

@@ -1,13 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-
-export class LoginUser {
-  constructor(
-    public username: string,
-    public password: string
-  ){}
-}
-
+import { LoginFormModel } from './login-form.model';
 
 @Component({
   selector: 'login-form',
@@ -17,7 +9,8 @@ export class LoginUser {
 
 
 export class LoginFormComponent implements OnInit {
-  loginUser: LoginUser;
+
+  model: LoginFormModel = new LoginFormModel();
 
   constructor() { }
 
