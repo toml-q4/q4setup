@@ -16,5 +16,7 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  login() {
+    alert('submit clicked');
+  }
 }
