@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginFormModel } from './login-form.model';
-
+import { AuthService } from '../../auth.service';
 @Component({
   selector: 'login-form',
   templateUrl: './login-form.component.html',
@@ -12,11 +12,11 @@ export class LoginFormComponent implements OnInit {
 
   model: LoginFormModel = new LoginFormModel();
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
   }
   login() {
-    alert('submit clicked');
+    this.authService.login(this.model.username, this.model.password);
   }
 }
