@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { LoginFormModel } from './login-form.model';
 import { AuthService } from '../../auth.service';
 @Component({
@@ -12,11 +14,19 @@ export class LoginFormComponent implements OnInit {
 
   model: LoginFormModel = new LoginFormModel();
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
   login() {
-    this.authService.login(this.model.username, this.model.password);
+    this.authService.login(this.model.username, this.model.password).subscribe(() => {
+      if (this.authService.isAuthenticated) {
+        let redirectUrl = this.authService.redirectUrl ? this.authService.redirectUrl : '/';
+
+        this.router.navigate([redirectUrl]);
+      }
+      else {
+      }
+    });
   }
 }
