@@ -4,8 +4,6 @@ import { LoginFormComponent } from './login/login-form/login-form.component';
 import { RouterModule, Routes } from '@angular/router';
 
 import { PageNotFoundComponent } from './page-not-found.component';
-import { AuthGuard } from './auth.guard';
-import { AuthService } from './auth.service';
 
 const appRoutes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/clients' },
@@ -20,7 +18,7 @@ const appRoutes: Routes = [
         RouterModule.forRoot(appRoutes)
     ],
     exports: [RouterModule],
-    providers: [AuthGuard, AuthService]
+    providers: []
 })
 export class AppRoutingModule { }
 

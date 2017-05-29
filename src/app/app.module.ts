@@ -9,6 +9,9 @@ import './rxjs-extensions';
 
 import { ClientsModule } from './clients/clients.module';
 
+import { AuthGuard } from './auth.guard';
+import { AuthService } from './auth.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +25,7 @@ import { ClientsModule } from './clients/clients.module';
     ClientsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
