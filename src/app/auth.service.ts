@@ -3,19 +3,6 @@ import { Observable } from 'rxjs/Observable';
 
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/delay';
-
-export class LoginResponse {
-  constructor(
-    public access_token: string,
-    public token_type: string,
-    public expires_in: number,
-    public refresh_token: string
-  ){}
-}
-
 @Injectable()
 export class AuthService {
   isAuthenticated: Boolean = false;
