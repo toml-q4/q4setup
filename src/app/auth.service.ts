@@ -30,8 +30,17 @@ export class AuthService {
     let options = new RequestOptions({ headers: headers });
     
     return this.http.post(this.loginPostUrl, `grant_type=password&username=${username}&password=${password}&client_id=Q4SetupApp`, options)
-    .map(this.handleResponse);
+    .map(this.handleResponse).catch(this.handleError);
   }
+
+  private handleError(response: Response) {
+    var message = response.json().message;
+    this.isAuthenticated = true;
+
+    return new Observable(message);
+
+  }
+
   handleResponse(response: Response) {
     if (response) return true;
 
