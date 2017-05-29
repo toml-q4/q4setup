@@ -12,14 +12,13 @@ import { AuthService } from '../../auth.service';
 
 
 export class LoginFormComponent {
-
   model: LoginFormModel = new LoginFormModel();
 
   constructor(private authService: AuthService, private router: Router) { }
 
   login() {
-    this.authService.login(this.model.username, this.model.password).subscribe(() => {
-      if (this.authService.isAuthenticated) {
+    this.authService.login(this.model.username, this.model.password).subscribe(isAuthenticated => {
+      if (isAuthenticated) {
         let redirectUrl = this.authService.redirectUrl ? this.authService.redirectUrl : '/';
 
         this.router.navigate([redirectUrl]);
@@ -28,7 +27,7 @@ export class LoginFormComponent {
         alert('failed to log in');
       }
     }, (errorMessage: string) => {
-      alert(this.authService.isAuthenticated);
+      alert(errorMessage);
     });
   }
 }

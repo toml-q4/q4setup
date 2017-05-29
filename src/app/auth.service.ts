@@ -5,12 +5,15 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 
 @Injectable()
 export class AuthService {
-  isAuthenticated: Boolean = false;
-  redirectUrl: string;
+  public token: string;
+  public redirectUrl: string;
 
   private loginPostUrl: string = 'https://q4setup.q4.local/token';
 
-  constructor(private http: Http) {}
+  constructor(private http: Http) {
+    var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = currentUser && currentUser.token;
+  }
 
   login(username: string, password: string): Observable<boolean> {
     let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
@@ -22,18 +25,27 @@ export class AuthService {
 
   private handleError(response: Response) {
     var message = response.json().message;
-    this.isAuthenticated = true;
-
     return new Observable(message);
-
   }
 
   handleResponse(response: Response) {
-    if (response) return true;
+    var data = response.json();
+    let token = data && data.access_token;
+    if (token) {
+        // set token property
+        this.token = token;
 
-    return false;
+        // store username and jwt token in local storage to keep user logged in between page refreshes
+        localStorage.setItem('currentUser', JSON.stringify({ username: data.userName, token: token }));
+
+        // return true to indicate successful login
+        return true;
+    } else {
+        // return false to indicate failed login
+        return false;
+    }
   }
   logout(): void {
-    this.isAuthenticated = false;
+    localStorage.clear();
   }
 }

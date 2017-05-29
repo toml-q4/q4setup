@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
+
+import { AuthService } from '../auth.service';
 
 import { Observable } from 'rxjs/Observable';
 import { Client } from './client';
@@ -7,11 +9,19 @@ import { ClientDetails } from './client-details';
 
 @Injectable()
 export class ClientService {
+  constructor(private http: Http, private authService: AuthService) { }
 
-  constructor(private http: Http) { }
+  createAuthorizationHeader(headers: Headers) {
+    var currentUser = localStorage.getItem('currentUser');
+
+    headers.append('Authorization', `Bearer ${this.authService.token}`); 
+  }
 
   getClients() {
-    return this.http.get('assets/api/clients.json')
+    let headers = new Headers();
+    this.createAuthorizationHeader(headers);
+
+    return this.http.get('https://q4setup.q4.local/api/ClientInstances?searchTerm=', { headers: headers })
     .map((response: Response) => <Client[]>response.json())
     .catch(this.handleError);
   }
@@ -28,3 +38,11 @@ export class ClientService {
     return Observable.throw(msg);
   }
 }
+
+/*
+ let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    let options = new RequestOptions({ headers: headers });
+    
+    return this.http.post(this.loginPostUrl, `grant_type=password&username=${username}&password=${password}&client_id=Q4SetupApp`, options)
+    .map(this.handleResponse).catch(this.handleError);
+*/
