@@ -3,6 +3,8 @@ import { Observable } from 'rxjs/Observable';
 
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 
+import { LOCAL_STORAGE } from './app.const';
+
 @Injectable()
 export class AuthService {
   public token: string;
@@ -11,8 +13,8 @@ export class AuthService {
   private loginPostUrl: string = 'https://q4setup.q4.local/token';
 
   constructor(private http: Http) {
-    var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.token = currentUser && currentUser.token;
+    var currentUser = JSON.parse(localStorage.getItem(LOCAL_STORAGE.currentUser));
+    this.token = currentUser && currentUser.access_token;
   }
 
   login(username: string, password: string): Observable<boolean> {
@@ -36,7 +38,7 @@ export class AuthService {
         this.token = token;
 
         // store username and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('currentUser', JSON.stringify({ username: data.userName, token: token }));
+        localStorage.setItem(LOCAL_STORAGE.currentUser, JSON.stringify({ username: data.userName, token: token }));
 
         // return true to indicate successful login
         return true;
@@ -46,6 +48,12 @@ export class AuthService {
     }
   }
   logout(): void {
-    localStorage.clear();
+    this.token = null;
+    localStorage.removeItem(LOCAL_STORAGE.currentUser);
+  }
+
+  isLoggedIn(): boolean {
+    let currentUser = localStorage.getItem(LOCAL_STORAGE.currentUser);
+    return typeof currentUser !== "undefined";
   }
 }

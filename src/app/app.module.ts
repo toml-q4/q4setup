@@ -12,11 +12,12 @@ import { ClientsModule } from './clients/clients.module';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
-    routableComponents
+    routableComponents    
   ],
   imports: [
     BrowserModule,

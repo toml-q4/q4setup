@@ -3,11 +3,11 @@
     <span class="navbar-toggler-icon"></span>
   </button>
     <a class="navbar-brand" routerLink="/"><img src="/assets/Q4_Blue.svg" width="30" height="30" alt="Q4 logo"></a>
-    <div class="collapse navbar-collapse" *ngIf="authService.isAuthenticated">
+    <div class="collapse navbar-collapse" *ngIf="isAuthenticated">
         <div class="navbar-nav">
             <a class="nav-item nav-link" [routerLink]="['/clients']" routerLinkActive="active">Clients</a>
             <a class="nav-item nav-link" [routerLink]="['/stockquotes']" routerLinkActive="active">Stock Quotes</a>
-            <a role="button" class="nav-item nav-link" (click)="logout()">Log Out</a>
+            <a class="nav-item nav-link" [routerLink]="['/login']">Log Out</a>
         </div>
     </div>
 </nav>

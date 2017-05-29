@@ -1,5 +1,5 @@
-<h1>{{clients.length}} Clients</h1>
+<h1>Clients</h1>
 <div *ngFor="let client of clients | async" (click)="onSelect(client.clientUid)">
     <client-list-item [client]="client"></client-list-item>
-    <div class="separator"></div>
+    <hr>
 </div>

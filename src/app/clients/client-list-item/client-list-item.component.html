@@ -8,8 +8,9 @@
         <span class="badge" [ngClass]="client.isCloudDataAvailable ? 'badge-info':'badge-danger'" title="Cloud Data">{{client.isCloudDataAvailable ? 'Cloud Data':'No Cloud Data'}}</span>
         <span class="badge" [ngClass]="client.isCloudDataSyncEnabled ? 'badge-info':'badge-danger'" title="Cloud Data Sync">{{client.isCloudDataSyncEnabled ? 'Cloud Data Sync':'No Cloud Data Sync'}}</span>
         <br>
-        <span title="Client Uid">{{ client.clientUid }}</span> - <span title="Database Name">{{ client.dbName }}</span>
-
+        <label-value label="Client Uid" [value]="client.clientUid"></label-value>
+        <label-value label="Database" [value]="client.dbName"></label-value>
+        
         <table class="table table-sm client-details">
             <tbody>
                 <tr>
@@ -21,29 +22,12 @@
 
     </div>
     <div class="col-sm-6">
-        <table class="table table-sm client-details">
-            <tbody>
-                <tr>
-                    <td>Site Status</td>
-                    <td>{{client.siteStatus}}</td>
-                </tr>
-                <tr>
-                    <td>User Name</td>
-                    <td>{{client.userName}}</td>
-                </tr>
-                <tr>
-                    <td>Pingdom</td>
-                    <td>{{client.pingdom}}</td>
-                </tr>
-                <tr>
-                    <td>Bucket Name</td>
-                    <td>{{client.bucketName}}</td>
-                </tr>
-                <tr>
-                    <td>Group Name</td>
-                    <td>{{client.groupName}}</td>
-                </tr>
-            </tbody>
-        </table>
+        <label-value label="Site Status" [value]="client.siteStatus"></label-value>
+        <label-value label="User Name" [value]="client.userName"></label-value>
+        <label-value label="Pingdom" [value]="client.pingdom"></label-value>
+        <label-value label="Bucket Name" [value]="client.bucketName"></label-value>
+        <label-value label="Group Name" [value]="client.groupName"></label-value>
+        <label-value label="User Name" [value]="client.userName"></label-value>
+        <label-value label="User Name" [value]="client.userName"></label-value>
     </div>
 </div>

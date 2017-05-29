@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ClientsRoutingModule, routableClientComponents } from './clients-routing.module';
 import { ClientService } from './client.service';
+import { LabelValueComponent } from '../shared/label-value/label-value.component';
 
 
 @NgModule({
@@ -11,7 +12,7 @@ import { ClientService } from './client.service';
     CommonModule,
     ClientsRoutingModule
   ],
-  declarations: [routableClientComponents],
+  declarations: [routableClientComponents, LabelValueComponent],
   providers: [ClientService]
 })
 export class ClientsModule { }

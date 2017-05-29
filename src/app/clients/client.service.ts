@@ -38,11 +38,3 @@ export class ClientService {
     return Observable.throw(msg);
   }
 }
-
-/*
- let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
-    let options = new RequestOptions({ headers: headers });
-    
-    return this.http.post(this.loginPostUrl, `grant_type=password&username=${username}&password=${password}&client_id=Q4SetupApp`, options)
-    .map(this.handleResponse).catch(this.handleError);
-*/
