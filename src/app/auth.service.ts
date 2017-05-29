@@ -1,28 +1,27 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { tokenNotExpired } from 'angular2-jwt';
 
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 
-import { LOCAL_STORAGE } from './app.const';
+import { LOCAL_STORAGE, URLS } from './auth.service.const';
 
 @Injectable()
 export class AuthService {
   public token: string;
   public redirectUrl: string;
 
-  private loginPostUrl: string = 'https://q4setup.q4.local/token';
-
   constructor(private http: Http) {
-    var currentUser = JSON.parse(localStorage.getItem(LOCAL_STORAGE.currentUser));
-    this.token = currentUser && currentUser.access_token;
+    this.token = localStorage.getItem(LOCAL_STORAGE.token);
   }
 
   login(username: string, password: string): Observable<boolean> {
     let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     let options = new RequestOptions({ headers: headers });
     
-    return this.http.post(this.loginPostUrl, `grant_type=password&username=${username}&password=${password}&client_id=Q4SetupApp`, options)
-    .map(this.handleResponse).catch(this.handleError);
+    return this.http.post(URLS.token, `grant_type=password&username=${username}&password=${password}&client_id=Q4SetupApp`, options)
+                    .map(this.handleResponse)
+                    .catch(this.handleError);
   }
 
   private handleError(response: Response) {
@@ -38,8 +37,8 @@ export class AuthService {
         this.token = token;
 
         // store username and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem(LOCAL_STORAGE.currentUser, JSON.stringify({ username: data.userName, token: token }));
-
+        localStorage.setItem(LOCAL_STORAGE.token, token);
+        localStorage.setItem(LOCAL_STORAGE.token_username, data.userName);
         // return true to indicate successful login
         return true;
     } else {
@@ -49,11 +48,11 @@ export class AuthService {
   }
   logout(): void {
     this.token = null;
-    localStorage.removeItem(LOCAL_STORAGE.currentUser);
+    localStorage.removeItem(LOCAL_STORAGE.token)
+    localStorage.removeItem(LOCAL_STORAGE.token_username);
   }
 
   isLoggedIn(): boolean {
-    let currentUser = localStorage.getItem(LOCAL_STORAGE.currentUser);
-    return typeof currentUser !== "undefined";
+    return tokenNotExpired();
   }
 }

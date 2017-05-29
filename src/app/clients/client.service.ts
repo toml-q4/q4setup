@@ -12,9 +12,9 @@ export class ClientService {
   constructor(private http: Http, private authService: AuthService) { }
 
   createAuthorizationHeader(headers: Headers) {
-    var currentUser = localStorage.getItem('currentUser');
+    var currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-    headers.append('Authorization', `Bearer ${this.authService.token}`); 
+    headers.append('Authorization', `Bearer ${currentUser.access_token}`); 
   }
 
   getClients() {
