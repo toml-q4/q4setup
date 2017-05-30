@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { tokenNotExpired } from 'angular2-jwt';
 
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 
@@ -20,6 +19,7 @@ export class AuthService {
     return this.http.post(URLS.token, `grant_type=password&username=${username}&password=${password}&client_id=Q4SetupApp`, options)
                     .map(this.handleResponse)
                     .catch(this.handleError);
+                    
   }
 
   private handleError(response: Response) {
@@ -28,29 +28,22 @@ export class AuthService {
   }
 
   handleResponse(response: Response) {
-    var data = response.json();
-    let token = data && data.access_token;
-    if (token) {
-        // store username and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('CurrentUser', data)
-        
-        // return true to indicate successful login
-        return true;
-    } else {
-        // return false to indicate failed login
-        return false;
+    if (response) {
+      localStorage.setItem(LOCAL_STORAGE.token, response.json().access_token);
+      return true;
     }
+    return false;
   }
   logout(): void {
-    localStorage.removeItem('CurrentUser');
+    localStorage.removeItem(LOCAL_STORAGE.token);
   }
 
   isLoggedIn(): boolean {
-    let currentUser = localStorage.getItem('CurrentUser');
-    if (currentUser) {
-      let user = JSON.parse(currentUser);
-      return user.access_token;
-    }
-    return false;
+    let token = localStorage.getItem(LOCAL_STORAGE.token); 
+    return  token !== null && token !== undefined;
+  }
+
+  getToken() {
+    return localStorage.getItem(LOCAL_STORAGE.token);
   }
 }

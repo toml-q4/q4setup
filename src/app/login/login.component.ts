@@ -6,8 +6,10 @@ import { AuthService } from '../auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent { 
-  constructor(private authService: AuthService){    
+export class LoginComponent implements OnInit { 
+  constructor(private authService: AuthService) { }
+
+  ngOnInit() {
     this.authService.logout();
   }
 }

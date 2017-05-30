@@ -10,17 +10,16 @@ import { AuthService } from '../../auth.service';
   styleUrls: ['./login-form.component.css']
 })
 
-
 export class LoginFormComponent {
   model: LoginFormModel = new LoginFormModel();
 
   constructor(private authService: AuthService, private router: Router) { }
 
   login() {
-    this.authService.login(this.model.username, this.model.password).subscribe(isAuthenticated => {
+    this.authService.login(this.model.username, this.model.password)
+    .subscribe(isAuthenticated => {
       if (isAuthenticated) {
         let redirectUrl = this.authService.redirectUrl ? this.authService.redirectUrl : '/';
-
         this.router.navigate([redirectUrl]);
       }
       else {

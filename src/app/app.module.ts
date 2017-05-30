@@ -7,7 +7,6 @@ import { AppRoutingModule, routableComponents } from './app-routing.module';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import './rxjs-extensions';
 
-import { AuthModule } from './auth.module';
 import { ClientsModule } from './clients/clients.module';
 
 import { AuthGuard } from './auth.guard';
@@ -23,7 +22,6 @@ import { AuthService } from './auth.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    AuthModule,
     ClientsModule,
     AppRoutingModule
   ],

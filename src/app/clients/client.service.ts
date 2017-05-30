@@ -12,9 +12,8 @@ export class ClientService {
   constructor(private http: Http, private authService: AuthService) { }
 
   createAuthorizationHeader(headers: Headers) {
-    var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-
-    headers.append('Authorization', `Bearer ${currentUser.access_token}`); 
+    let token = this.authService.getToken();
+    headers.append('Authorization', `Bearer ${token}`); 
   }
 
   getClients() {

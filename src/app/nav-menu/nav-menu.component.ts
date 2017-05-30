@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
@@ -7,9 +7,12 @@ import { AuthService } from '../auth.service';
   templateUrl: './nav-menu.component.html',
   styleUrls: ['./nav-menu.component.css']
 })
-export class NavMenuComponent {
+export class NavMenuComponent implements OnInit {
   isAuthenticated = false;
   constructor(public authService: AuthService, private router: Router) { 
+  }
+
+  ngOnInit() {
     this.isAuthenticated = this.authService.isLoggedIn();
   }
 }
