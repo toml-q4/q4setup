@@ -8,11 +8,9 @@ import { LOCAL_STORAGE, URLS } from './auth.service.const';
 
 @Injectable()
 export class AuthService {
-  public token: string;
   public redirectUrl: string;
 
   constructor(private http: Http) {
-    this.token = localStorage.getItem(LOCAL_STORAGE.token);
   }
 
   login(username: string, password: string): Observable<boolean> {
@@ -33,12 +31,9 @@ export class AuthService {
     var data = response.json();
     let token = data && data.access_token;
     if (token) {
-        // set token property
-        this.token = token;
-
         // store username and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem(LOCAL_STORAGE.token, token);
-        localStorage.setItem(LOCAL_STORAGE.token_username, data.userName);
+        localStorage.setItem('CurrentUser', data)
+        
         // return true to indicate successful login
         return true;
     } else {
@@ -47,12 +42,15 @@ export class AuthService {
     }
   }
   logout(): void {
-    this.token = null;
-    localStorage.removeItem(LOCAL_STORAGE.token)
-    localStorage.removeItem(LOCAL_STORAGE.token_username);
+    localStorage.removeItem('CurrentUser');
   }
 
   isLoggedIn(): boolean {
-    return tokenNotExpired();
+    let currentUser = localStorage.getItem('CurrentUser');
+    if (currentUser) {
+      let user = JSON.parse(currentUser);
+      return user.access_token;
+    }
+    return false;
   }
 }
