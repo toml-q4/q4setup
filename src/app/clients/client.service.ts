@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+import { Response } from '@angular/http';
 
-import { AuthService } from '../auth.service';
+import { AuthHttpService } from '../auth-http.service';
 
 import { Observable } from 'rxjs/Observable';
 import { Client } from './client';
@@ -9,26 +9,21 @@ import { ClientDetails } from './client-details';
 
 @Injectable()
 export class ClientService {
-  constructor(private http: Http, private authService: AuthService) { }
-
-  createAuthorizationHeader(headers: Headers) {
-    let token = this.authService.getToken();
-    headers.append('Authorization', `Bearer ${token}`); 
-  }
+  constructor(private http: AuthHttpService) { }
 
   getClients() {
-    let headers = new Headers();
-    this.createAuthorizationHeader(headers);
+    let url = 'https://q4setup.q4.local/api/ClientInstances?searchTerm=';
 
-    return this.http.get('https://q4setup.q4.local/api/ClientInstances?searchTerm=', { headers: headers })
-    .map((response: Response) => <Client[]>response.json())
-    .catch(this.handleError);
+    return this.http.get(url)
+                    .map((response: Response) => <Client[]>response.json())
+                    .catch(this.handleError);
   }
 
   getClient(clientUid: string) {
-    return this.http.get('assets/api/client.json')
-    .map((response: Response) => <ClientDetails>response.json())
-    .catch(this.handleError);
+    let url = `https://q4setup.q4.local/api/WebsiteEditing/GetSiteEditViewModel?clientUid=${clientUid}`;
+    return this.http.get(url)
+                    .map((response: Response) => <ClientDetails>response.json())
+                    .catch(this.handleError);
   }
 
   private handleError(error: Response) {

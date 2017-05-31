@@ -16,8 +16,7 @@ export class ClientComponent implements OnInit {
 
   ngOnInit() {
     if (!this.clientDetails) {
-      this.route
-        .params
+      this.route.params
         .map(params => params['id'])
         .do(clientUid => this.clientUid = clientUid)
         .subscribe(clientUid => this.getClient());

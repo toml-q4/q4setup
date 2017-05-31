@@ -2,9 +2,11 @@ export class ClientDetails {
   constructor(
     public siteName: string,
     public databaseName: string,
-    public siteStatus: string,
     public clientUid: string,
+    public siteId: number,
+    public pingdomCheckId: 0,
     public version: string,
-    public pingdom: number
+    public siteStatus: string,
+    languageViewModel: LanguageViewModel
   ){}
 }
