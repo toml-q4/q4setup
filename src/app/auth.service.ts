@@ -43,13 +43,17 @@ export class AuthService {
     if (response && response != null) {
       let data = response.json();
       if (data){
-        localStorage.setItem(LOCAL_STORAGE.token, data.access_token);
+        this.setAuthorizedData(data);
         return true;
       }
     }
     return false;
   }
   
+  private setAuthorizedData(data: any) {
+    localStorage.setItem(LOCAL_STORAGE.token, data.access_token);
+    localStorage.setItem(LOCAL_STORAGE.refresh_token, data.refresh_token);
+  }
   isLoggedIn(): boolean {
     let token = localStorage.getItem(LOCAL_STORAGE.token); 
     return  token !== null && token !== undefined;
@@ -57,5 +61,23 @@ export class AuthService {
 
   getToken() {
     return localStorage.getItem(LOCAL_STORAGE.token);
+  }
+
+  private refreshToken(){
+    let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(URLS.token, `grant_type=refresh_token&refresh_token=${localStorage.getItem(LOCAL_STORAGE.refresh_token)}&client_id=Q4SetupApp`, options)
+                    .map((response: Response) => {
+                      console.log(response);
+                      if (response && response != null) {
+                        let data = response.json();
+                        if (data){
+                          this.setAuthorizedData(data);
+                          return true;
+                        }
+                      }
+                      return false;
+                    })                    
+                    .catch(this.handleError);
   }
 }
