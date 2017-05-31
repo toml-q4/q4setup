@@ -1,3 +1,6 @@
+import { LanguageViewModel } from './language-view-model';
+import { ConfigurationTypeViewModel } from './configuration-type-view-model';
+
 export class ClientDetails {
   constructor(
     public siteName: string,
@@ -7,6 +10,7 @@ export class ClientDetails {
     public pingdomCheckId: 0,
     public version: string,
     public siteStatus: string,
-    languageViewModel: LanguageViewModel
+    public languageViewModel: LanguageViewModel,
+    public configurationTypeViewModel: ConfigurationTypeViewModel
   ){}
 }
