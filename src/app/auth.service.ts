@@ -60,7 +60,7 @@ export class AuthService {
     return localStorage.getItem(LOCAL_STORAGE.token);
   }
 
-  private refreshToken(){
+  refreshToken(){
     let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(URLS.token, `grant_type=refresh_token&refresh_token=${localStorage.getItem(LOCAL_STORAGE.refresh_token)}&client_id=Q4SetupApp`, options)
