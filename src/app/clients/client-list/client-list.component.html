@@ -1,6 +1,12 @@
 <h1>Clients</h1>
 
-<ngx-datatable class="material"
+<ngx-datatable
+[selected]="selected"
+[selectionType]="'single'"
+(select)="onSelect($event)"
+[rowHeight]="'auto'"
 [rows]="clients | async"
-[columns]="columns">
+[columns]="columns"
+[columnMode]="'force'">
+
 </ngx-datatable>
