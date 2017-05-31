@@ -43,17 +43,14 @@ export class AuthService {
     if (response && response != null) {
       let data = response.json();
       if (data){
-        this.setAuthorizedData(data);
+        localStorage.setItem(LOCAL_STORAGE.token, data.access_token);
+        localStorage.setItem(LOCAL_STORAGE.refresh_token, data.refresh_token);
         return true;
       }
     }
     return false;
   }
   
-  private setAuthorizedData(data: any) {
-    localStorage.setItem(LOCAL_STORAGE.token, data.access_token);
-    localStorage.setItem(LOCAL_STORAGE.refresh_token, data.refresh_token);
-  }
   isLoggedIn(): boolean {
     let token = localStorage.getItem(LOCAL_STORAGE.token); 
     return  token !== null && token !== undefined;
@@ -72,7 +69,8 @@ export class AuthService {
                       if (response && response != null) {
                         let data = response.json();
                         if (data){
-                          this.setAuthorizedData(data);
+                          localStorage.setItem(LOCAL_STORAGE.token, data.access_token);
+                          localStorage.setItem(LOCAL_STORAGE.refresh_token, data.refresh_token);
                           return true;
                         }
                       }
