@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+.ngx-datatable .datatable-header .datatable-header-cell-label {
+  font-weight: bold;
+}
+.ngx-datatable .datatable-body-row {
+  padding: 4px 0;
+}
+.ngx-datatable .datatable-body-row.active:hover {
+  background-color: #555;
+}
+.ngx-datatable .datatable-body-row.datatable-row-even {
+  background-color: #efefef;
+}
+.ngx-datatable .datatable-body-cell, .ngx-datatable .datatable-header-cell {
+  padding: 0 4px;
+}

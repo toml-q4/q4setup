@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { ClientDetails } from '../client-details';
+import { ClientDetails } from './models/client-details';
 import { ClientService } from '../client.service';
 
 @Component({
@@ -16,8 +16,7 @@ export class ClientComponent implements OnInit {
 
   ngOnInit() {
     if (!this.clientDetails) {
-      this.route
-        .params
+      this.route.params
         .map(params => params['id'])
         .do(clientUid => this.clientUid = clientUid)
         .subscribe(clientUid => this.getClient());

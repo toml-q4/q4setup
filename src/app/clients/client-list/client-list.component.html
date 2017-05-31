@@ -1,5 +1,12 @@
 <h1>Clients</h1>
-<div *ngFor="let client of clients | async" (click)="onSelect(client.clientUid)">
-    <client-list-item [client]="client"></client-list-item>
-    <hr>
-</div>
+
+<ngx-datatable
+[selected]="selected"
+[selectionType]="'single'"
+(select)="onSelect($event)"
+[rowHeight]="'auto'"
+[rows]="clients | async"
+[columns]="columns"
+[columnMode]="'force'">
+
+</ngx-datatable>

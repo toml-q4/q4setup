@@ -6,11 +6,11 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule, routableComponents } from './app-routing.module';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import './rxjs-extensions';
-
 import { ClientsModule } from './clients/clients.module';
 
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
+import { AuthHttpService } from './auth-http.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { AuthService } from './auth.service';
     ClientsModule,
     AppRoutingModule
   ],
-  providers: [AuthGuard, AuthService],
+  providers: [AuthGuard, AuthHttpService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
