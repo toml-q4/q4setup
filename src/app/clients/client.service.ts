@@ -5,7 +5,7 @@ import { AuthHttpService } from '../auth-http.service';
 
 import { Observable } from 'rxjs/Observable';
 import { Client } from './client';
-import { ClientDetails } from './client-details';
+import { ClientDetails } from './client/models/client-details';
 
 @Injectable()
 export class ClientService {
