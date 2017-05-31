@@ -5,7 +5,6 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { ClientsRoutingModule, routableClientComponents } from './clients-routing.module';
 import { ClientService } from './client.service';
-import { LabelValueComponent } from '../shared/label-value/label-value.component';
 
 
 @NgModule({
@@ -14,7 +13,7 @@ import { LabelValueComponent } from '../shared/label-value/label-value.component
     CommonModule,
     ClientsRoutingModule
   ],
-  declarations: [routableClientComponents, LabelValueComponent],
+  declarations: [routableClientComponents],
   providers: [ClientService]
 })
 export class ClientsModule { }

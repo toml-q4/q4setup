@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ClientService } from '../client.service';
-import { ClientListItemComponent } from '../client-list-item/client-list-item.component';
 import { Client } from '../client';
 import { Observable } from 'rxjs/Observable';
 
@@ -21,7 +20,12 @@ export class ClientListComponent implements OnInit {
              { prop: 'hostnames', name: 'Registered Domains' },
              { prop: 'version', name: 'Version' },
              { prop: 'configurationType', name: 'Configuration Type' },
-             { prop: 'userName', name: 'Username', minWidth: 250 }];
+             { prop: 'userName', name: 'Username', minWidth: 250 },
+             { prop: 'pingdom', name: 'Pingdom' },
+             { prop: 'bucketName', name: 'Bucket Name' },
+             { prop: 'groupName', name: 'Group Name' },
+             { prop: 'isCloudDataAvailable', name: 'Cloud Data Available' },
+             { prop: 'isCloudDataSyncEnabled', name: 'Cloud Data Sync Enabled' }];
 
   selected:any = [];
 
