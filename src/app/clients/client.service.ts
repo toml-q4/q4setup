@@ -21,6 +21,7 @@ export class ClientService {
 
   getClient(clientUid: string) {
     let url = `https://q4setup.q4.local/api/WebsiteEditing/GetSiteEditViewModel?clientUid=${clientUid}`;
+    url = 'assets/api/client.json';
     return this.http.get(url)
                     .map((response: Response) => <ClientDetails>response.json())
                     .catch(this.handleError);
