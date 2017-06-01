@@ -5,8 +5,66 @@
 [selectionType]="'single'"
 (select)="onSelect($event)"
 [rowHeight]="'auto'"
-[rows]="clients | async"
-[columns]="columns"
-[columnMode]="'force'">
+[headerHeight]="60"
+[loadingIndicator]="true"
+[rows]="clients | async">
+    <ngx-datatable-column name="Site Name" [width]="200">
+        <ng-template let-client="row" ngx-datatable-cell-template>
+            {{client.siteName}}<br/>
+            <span class="badge" [ngClass]="{'badge-success': client.isActive, 'badge-danger': !client.isActive}">{{client.isActive ? 'Active' : 'Inactive'}}</span>
+            <span class="badge" [ngClass]="{'badge-success': client.isLive, 'badge-danger': !client.isLive}">{{client.isLive ? 'Live' : 'Not Live'}}</span>
+            <br/>
+            <span title="Client Uid">{{client.clientUid}}</span><br/>
+            <span title="Database Name">{{client.dbName}}</span>
+        </ng-template>
+    </ngx-datatable-column>
 
+    <ngx-datatable-column name="Cloud Data">
+        <ng-template let-client="row" ngx-datatable-cell-template>
+            <span class="badge" [ngClass]="{'badge-success': client.isCloudDataAvailable, 'badge-danger': !client.isCloudDataAvailable}">{{client.isCloudDataAvailable ? 'Available' : 'Unavailable'}}</span>
+            <span class="badge" [ngClass]="{'badge-success': client.isCloudDataSyncEnabled, 'badge-danger': !client.isCloudDataSyncEnabled}">Sync {{client.isCloudDataSyncEnabled ? 'Enabled' : 'Disabled'}}</span>
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Site Status" prop="siteStatus">
+        <ng-template let-siteStatus="value" ngx-datatable-cell-template>
+            <span title="Site Status">{{siteStatus}}</span>
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Registered<br/>Domains" prop="hostnames" [width]="160">
+        <ng-template let-hostnames="value" ngx-datatable-cell-template>
+            <span title="Registered Domains" [innerHtml]="hostnames | linkify"></span>
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Version<br/>Configuration Type">
+        <ng-template let-client="row" ngx-datatable-cell-template>
+            <span title="Version">{{client.version}}</span><br/><span title="Configuration Type">{{client.configurationType}}</span>
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Username" prop="userName" [width]="200">
+        <ng-template let-username="value" ngx-datatable-cell-template>
+            <span title="Username" [innerHtml]="username | username"></span>
+        </ng-template>
+    </ngx-datatable-column>
+    
+    <ngx-datatable-column name="Pingdom" prop="pingdom">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            <span title="Pingdom">{{value}}</span>
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Bucket Name" prop="bucketName">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            <span title="Bucket Name">{{value}}</span>
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Group Name" prop="groupName" [width]="200">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            <span title="Group Name">{{value}}</span>
+        </ng-template>
+    </ngx-datatable-column>
 </ngx-datatable>
