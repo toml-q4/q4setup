@@ -12,7 +12,8 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ClientListComponent implements OnInit {
   selected:any = [];
-  clients: Observable<Client>;
+  clients: Client[];
+  temp: Client[];
   constructor(private clientService: ClientService,
               private router: Router) { }
 
@@ -21,10 +22,25 @@ export class ClientListComponent implements OnInit {
   }
 
   getClients() {
-    this.clients = this.clientService.getClients();
+    this.clientService.getClients().subscribe(clients => {
+      this.clients = clients;
+      this.temp = [...clients];
+    }); ;
   }
 
   onSelect({ selected }) {
      this.router.navigate(['/clients', selected[0].clientUid]);
+  }
+
+  updateFilter(event) {
+    const val = event.target.value.toLowerCase();
+
+    // filter our data
+    const temp = this.temp.filter(function(d) {
+      return d.siteName.toLowerCase().indexOf(val) !== -1 || !val;
+    });
+
+    // update the rows
+    this.clients = temp;
   }
 }

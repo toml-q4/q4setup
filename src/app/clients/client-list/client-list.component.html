@@ -1,5 +1,13 @@
 <h1>Clients</h1>
-
+    
+<div class="search">
+    <input
+    class="form-control"
+    type='text'
+    placeholder='Search'
+    (keyup)='updateFilter($event)'
+    />
+</div>
 <ngx-datatable
 [selected]="selected"
 [selectionType]="'single'"
@@ -7,7 +15,10 @@
 [rowHeight]="'auto'"
 [headerHeight]="60"
 [loadingIndicator]="true"
-[rows]="clients | async">
+[limit]="10"
+[footerHeight]="50"
+[rowHeight]="'auto'"
+[rows]="clients">
     <ngx-datatable-column name="Site Name" [width]="200">
         <ng-template let-client="row" ngx-datatable-cell-template>
             {{client.siteName}}<br/>
