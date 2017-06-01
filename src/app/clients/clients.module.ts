@@ -5,7 +5,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { ClientsRoutingModule, routableClientComponents } from './clients-routing.module';
 import { ClientService } from './client.service';
-
+import { LinkifyPipe } from './linkify.pipe';
+import { UsernamePipe } from './username.pipe';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { ClientService } from './client.service';
     CommonModule,
     ClientsRoutingModule
   ],
-  declarations: [routableClientComponents],
+  declarations: [routableClientComponents, LinkifyPipe, UsernamePipe],
   providers: [ClientService]
 })
 export class ClientsModule { }

@@ -2,14 +2,19 @@
   font-weight: bold;
 }
 .ngx-datatable .datatable-body-row {
-  padding: 4px 0;
+  padding: 10px 0;
+  cursor: pointer;
 }
-.ngx-datatable .datatable-body-row.active:hover {
-  background-color: #555;
-}
+
 .ngx-datatable .datatable-body-row.datatable-row-even {
   background-color: #efefef;
 }
 .ngx-datatable .datatable-body-cell, .ngx-datatable .datatable-header-cell {
   padding: 0 4px;
+}
+
+.link-source {
+    display: block;
+    font-size: 8pt;
+    font-style: italic;
 }

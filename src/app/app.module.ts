@@ -16,7 +16,7 @@ import { AuthHttpService } from './auth-http.service';
   declarations: [
     AppComponent,
     NavMenuComponent,
-    routableComponents    
+    routableComponents
   ],
   imports: [
     BrowserModule,
