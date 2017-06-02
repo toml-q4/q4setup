@@ -4,7 +4,7 @@ import { Response } from '@angular/http';
 import { AuthHttpService } from '../auth-http.service';
 
 import { Observable } from 'rxjs/Observable';
-import { Client } from './client';
+import { Client } from './client-list/models/client';
 import { ClientDetails } from './client/models/client-details';
 
 @Injectable()

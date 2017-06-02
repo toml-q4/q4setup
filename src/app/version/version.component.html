@@ -2,20 +2,22 @@
   <div class="row">
     <div class="col-md-3 version">
       <h1>v4.3.0</h1>
-      <div class="clients" [dragula]="'previous-version'" [dragulaModel]='clients'>
-        <div *ngFor="let client of clients">{{client.siteName}}</div>        
+      <div class="clients" [dragula]="'bag-version'" [dragulaModel]='previousClients'>
+        <div *ngFor="let client of previousClients">{{client.siteName}}</div>        
       </div>
     </div>
     <div class="col-md-3 version">
       <h1>v4.4.0</h1>
-      <div class="clients" [dragula]="'current-version'" [dragulaModel]='clients'>
+      <div class="clients" [dragula]="'bag-version'" [dragulaModel]='clients'>
         <div *ngFor="let client of clients">{{client.siteName}}</div>
       </div>
     </div>
     <div class="col-md-3 version">
       <h1>v4.5.0</h1>
-      <div class="clients" [dragula]="'next-version'" [dragulaModel]='clients'>
+      <div class="clients" [dragula]="'bag-version'" [dragulaModel]='nextClients'>
+        <div *ngFor="let client of nextClients">{{client.siteName}}</div>        
       </div>
     </div>
   </div>
+  <button type="button" class="btn btn-primary" (click)="save()">Save</button>
 </div>
