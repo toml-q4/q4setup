@@ -1,3 +1,21 @@
-<p>
-  version works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 version">
+      <h1>v4.3.0</h1>
+      <div class="clients" [dragula]="'previous-version'" [dragulaModel]='clients'>
+        <div *ngFor="let client of clients">{{client.siteName}}</div>        
+      </div>
+    </div>
+    <div class="col-md-3 version">
+      <h1>v4.4.0</h1>
+      <div class="clients" [dragula]="'current-version'" [dragulaModel]='clients'>
+        <div *ngFor="let client of clients">{{client.siteName}}</div>
+      </div>
+    </div>
+    <div class="col-md-3 version">
+      <h1>v4.5.0</h1>
+      <div class="clients" [dragula]="'next-version'" [dragulaModel]='clients'>
+      </div>
+    </div>
+  </div>
+</div>
