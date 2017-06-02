@@ -6,4 +6,10 @@
     padding: 4px;
     min-height: 500px;
     border: 2px dashed #333;
+
+    .client {
+        padding: 4px;
+        margin: 4px 0;
+        cursor: pointer;
+    }
 }

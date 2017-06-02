@@ -1,23 +1,24 @@
 <div class="container-fluid">
+  <h1>Version Control</h1>
+  <button type="button" class="btn btn-primary" (click)="save()">Save</button>
   <div class="row">
     <div class="col-md-3 version">
       <h1>v4.3.0</h1>
       <div class="clients" [dragula]="'bag-version'" [dragulaModel]='previousClients'>
-        <div *ngFor="let client of previousClients">{{client.siteName}}</div>        
+        <div [ngClass]="'bg-primary text-white client'" *ngFor="let client of previousClients">{{client.siteName}}</div>        
       </div>
     </div>
     <div class="col-md-3 version">
       <h1>v4.4.0</h1>
       <div class="clients" [dragula]="'bag-version'" [dragulaModel]='clients'>
-        <div *ngFor="let client of clients">{{client.siteName}}</div>
+        <div [ngClass]="'bg-primary text-white client'" *ngFor="let client of clients">{{client.siteName}}</div>
       </div>
     </div>
     <div class="col-md-3 version">
       <h1>v4.5.0</h1>
       <div class="clients" [dragula]="'bag-version'" [dragulaModel]='nextClients'>
-        <div *ngFor="let client of nextClients">{{client.siteName}}</div>        
+        <div [ngClass]="'bg-primary text-white client'" *ngFor="let client of nextClients">{{client.siteName}}</div>        
       </div>
     </div>
   </div>
-  <button type="button" class="btn btn-primary" (click)="save()">Save</button>
 </div>
