@@ -13,7 +13,7 @@ export class ClientService {
 
   getClients() {
     let url = 'https://q4setup.q4.local/api/ClientInstances?searchTerm=';
-
+    url = 'assets/api/clients.json';
     return this.http.get(url)
                     .map((response: Response) => <Client[]>response.json())
                     .catch(this.handleError);

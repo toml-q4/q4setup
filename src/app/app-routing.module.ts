@@ -9,6 +9,7 @@ const appRoutes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/clients' },
     { path: 'login', component: LoginComponent },
     { path: 'stockquotes', loadChildren: 'app/stockquotes/stockquotes.module#StockQuotesModule' },
+    { path: 'version', loadChildren: 'app/version/version.module#VersionModule' },
     { path: '**', pathMatch: 'full', component: PageNotFoundComponent }
 ];
 
