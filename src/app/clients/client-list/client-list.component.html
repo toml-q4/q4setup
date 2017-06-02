@@ -12,13 +12,12 @@
 [selected]="selected"
 [selectionType]="'single'"
 (select)="onSelect($event)"
-[rowHeight]="'auto'"
+[columnMode]="'standard'"
+[rowHeight]="30"
 [headerHeight]="60"
-[loadingIndicator]="true"
-[limit]="10"
-[footerHeight]="50"
-[rowHeight]="'auto'"
-[rows]="clients">
+[footerHeight]="60"
+[rows]="clients"
+[scrollbarV]="true">
     <ngx-datatable-column name="Site Name" [width]="200">
         <ng-template let-client="row" ngx-datatable-cell-template>
             {{client.siteName}}<br/>

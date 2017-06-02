@@ -43,4 +43,8 @@ export class ClientListComponent implements OnInit {
     // update the rows
     this.clients = temp;
   }
+
+  getRowHeight() {
+    return 200;
+  }
 }
