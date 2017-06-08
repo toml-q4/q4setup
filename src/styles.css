@@ -1,4 +1,4 @@
-.ngx-datatable .datatable-header .datatable-header-cell-label {
+/*.ngx-datatable .datatable-header .datatable-header-cell-label {
   font-weight: bold;
 }
 .ngx-datatable .datatable-body-row {
@@ -11,8 +11,11 @@
 }
 .ngx-datatable .datatable-body-cell, .ngx-datatable .datatable-header-cell {
   padding: 0 4px;
-}
+}*/
 
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
 .link-source {
     display: block;
     font-size: 8pt;

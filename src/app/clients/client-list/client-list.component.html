@@ -1,6 +1,6 @@
 <h1>Clients</h1>
 
-<ngx-datatable [selected]="selected" [selectionType]="'single'" (select)="onSelect($event)" [rowHeight]="'auto'" [headerHeight]="60" [loadingIndicator]="true" [rows]="clients | async">
+<ngx-datatable class="material" [selected]="selected" [selectionType]="'single'" (select)="onSelect($event)" [headerHeight]="60" [footerHeight]="60" [scrollbarV]="true" [rows]="clients | async">
     <ngx-datatable-column name="Site Name" [width]="200">
         <ng-template let-client="row" ngx-datatable-cell-template>
             {{client.siteName}}<br/>
