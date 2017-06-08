@@ -44,6 +44,7 @@ export class AuthService {
       let data = response.json();
       if (data){
         localStorage.setItem(LOCAL_STORAGE.token, data.access_token);
+        localStorage.setItem(LOCAL_STORAGE.refresh_token, data.refresh_token);
         return true;
       }
     }
@@ -59,5 +60,24 @@ export class AuthService {
 
   getToken() {
     return localStorage.getItem(LOCAL_STORAGE.token);
+  }
+
+  refreshToken(){
+    let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(URLS.token, `grant_type=refresh_token&refresh_token=${localStorage.getItem(LOCAL_STORAGE.refresh_token)}&client_id=Q4SetupApp`, options)
+                    .map((response: Response) => {
+                      console.log(response);
+                      if (response && response != null) {
+                        let data = response.json();
+                        if (data){
+                          localStorage.setItem(LOCAL_STORAGE.token, data.access_token);
+                          localStorage.setItem(LOCAL_STORAGE.refresh_token, data.refresh_token);
+                          return true;
+                        }
+                      }
+                      return false;
+                    })                    
+                    .catch(this.handleError);
   }
 }

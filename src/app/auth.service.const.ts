@@ -1,5 +1,6 @@
 export const LOCAL_STORAGE = {
     token: 'token',
+    refresh_token: 'refresh_token',
     token_username: 'username'
 };
 
