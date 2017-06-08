@@ -1,13 +1,6 @@
 <h1>Clients</h1>
 
-<ngx-datatable
-[selected]="selected"
-[selectionType]="'single'"
-(select)="onSelect($event)"
-[rowHeight]="'auto'"
-[headerHeight]="60"
-[loadingIndicator]="true"
-[rows]="clients | async">
+<ngx-datatable [selected]="selected" [selectionType]="'single'" (select)="onSelect($event)" [rowHeight]="'auto'" [headerHeight]="60" [loadingIndicator]="true" [rows]="clients | async">
     <ngx-datatable-column name="Site Name" [width]="200">
         <ng-template let-client="row" ngx-datatable-cell-template>
             {{client.siteName}}<br/>
@@ -44,12 +37,12 @@
         </ng-template>
     </ngx-datatable-column>
 
-    <ngx-datatable-column name="Username" prop="userName" [width]="200">
+    <ngx-datatable-column name="Username" prop="username" [width]="200">
         <ng-template let-username="value" ngx-datatable-cell-template>
             <span title="Username" [innerHtml]="username | username"></span>
         </ng-template>
     </ngx-datatable-column>
-    
+
     <ngx-datatable-column name="Pingdom" prop="pingdom">
         <ng-template let-value="value" ngx-datatable-cell-template>
             <span title="Pingdom">{{value}}</span>
