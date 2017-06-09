@@ -1,0 +1,8 @@
+.form-control {
+    width: 100%;
+}
+
+md-input-container {
+    display: block;
+    width: 400px;
+}

@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found.component';
 
 const appRoutes: Routes = [
-    { path: '', pathMatch: 'full', redirectTo: '/clients' },
+    { path: '', pathMatch: 'full', redirectTo: '/login' },
     { path: 'login', component: LoginComponent },
     { path: 'stockquotes', loadChildren: 'app/stockquotes/stockquotes.module#StockQuotesModule' },
     { path: '**', pathMatch: 'full', component: PageNotFoundComponent }
